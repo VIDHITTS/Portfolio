@@ -166,8 +166,8 @@ export const PROJECTS: IProject[] = [
             'Pandas',
             'Machine Learning',
         ],
-        thumbnail: '/projects/images/app-success-1.png',
-        longThumbnail: '/projects/images/app-success-1.png',
+        thumbnail: '/projects/images/app-success-2.png',
+        longThumbnail: '/projects/images/app-success-2.png',
         images: [
             '/projects/images/app-success-1.png',
             '/projects/images/app-success-2.png',

@@ -5,7 +5,6 @@ import { cn } from '@/lib/utils';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
-import Image from 'next/image';
 import React, { useRef, useState, MouseEvent } from 'react';
 import Project from './Project';
 
@@ -15,7 +14,6 @@ const ProjectList = () => {
     const containerRef = useRef<HTMLDivElement>(null);
     const projectListRef = useRef<HTMLDivElement>(null);
     const imageContainer = useRef<HTMLDivElement>(null);
-    const imageRef = useRef<HTMLImageElement>(null);
     const [selectedProject, setSelectedProject] = useState<string | null>(
         PROJECTS[0].slug,
     );
@@ -111,26 +109,30 @@ const ProjectList = () => {
                 <div className="group/projects relative" ref={containerRef}>
                     {selectedProject !== null && (
                         <div
-                            className="max-md:hidden absolute right-0 top-0 z-[1] pointer-events-none w-[200px] xl:w-[350px] aspect-[3/4] overflow-hidden opacity-0"
+                            className="max-md:hidden absolute right-0 top-0 z-[1] pointer-events-none w-[200px] xl:w-[350px] h-[300px] xl:h-[400px] overflow-visible opacity-0 rounded-lg"
                             ref={imageContainer}
                         >
                             {PROJECTS.map((project) => (
-                                <Image
-                                    src={project.thumbnail}
-                                    alt="Project"
-                                    width="400"
-                                    height="500"
+                                <div
+                                    key={project.slug}
                                     className={cn(
-                                        'absolute inset-0 transition-all duration-500 w-full h-full object-cover',
+                                        'absolute inset-0 flex items-center justify-center transition-opacity duration-500 bg-background-light rounded-lg',
                                         {
-                                            'opacity-0':
+                                            'opacity-0 pointer-events-none':
                                                 project.slug !==
+                                                selectedProject,
+                                            'opacity-100':
+                                                project.slug ===
                                                 selectedProject,
                                         },
                                     )}
-                                    ref={imageRef}
-                                    key={project.slug}
-                                />
+                                >
+                                    <img
+                                        src={project.thumbnail}
+                                        alt={project.title}
+                                        className="max-w-full max-h-full object-contain"
+                                    />
+                                </div>
                             ))}
                         </div>
                     )}
