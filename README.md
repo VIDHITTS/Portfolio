@@ -1,39 +1,61 @@
 # 🚀 My Portfolio Website
 
-![image](https://github.com/user-attachments/assets/ade45c4b-b2cb-46cb-b8a6-31cad3bd0c5a)
+A modern, responsive portfolio showcasing my projects, skills, and experience. Built with Next.js 15, TypeScript, Tailwind CSS, and GSAP animations.
 
-[Checkout the initial design here](https://www.figma.com/design/56hODoGFDzZfZduBPfQeBg/New-Portfolio?node-id=18-1550&t=73vRMGTW0gspTSND-1)
+## ✨ Features
 
-## 🚨 Forking this repo (please read!)
+-   🎨 Clean and modern design with smooth animations
+-   📱 Fully responsive across all devices
+-   ⚡ Optimized performance with Next.js 15
+-   🎭 Interactive UI with GSAP and smooth scrolling
+-   🌐 Project showcase with live demos and GitHub links
 
-Many people have contacted me asking me if they can use this code for their own website, and the answer to that question is usually **yes, with attribution**.
+## 🛠 Tech Stack
 
-I value keeping my site open source, but as you all know, _**plagiarism is bad**_. It's always disheartening whenever I find that someone has copied my site without giving me credit. I spent a non-trivial amount of effort building and designing this iteration of my website, and I am proud of it! All I ask of you all is to not claim this effort as your own.
+-   **Framework**: Next.js 15.2.8
+-   **Language**: TypeScript
+-   **Styling**: Tailwind CSS
+-   **Animations**: GSAP with ScrollTrigger
+-   **Icons**: React Icons, Lucide React
+-   **Deployment**: Vercel
 
-Please also note that I did not build this site with the intention of it being a starter theme, so if you have questions about implementation, please refer to the [Next.js docs](https://nextjs.org/docs).
+## 🚀 Getting Started
 
-If you like my work, give it a star⭐.
-
-### TL;DR
-
-Yes, you can fork this repo. Please give me proper credit by linking back to [tajmirul.site](https://tajmirul.site/). Thanks!
-
-## 🛠 Installation & Set Up
-
-First, run the development server:
+1. Clone the repository:
 
 ```bash
-pnpm install
-pnpm dev
+git clone https://github.com/VIDHITTS/Portfolio.git
+cd Portfolio
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
 
-## 🤝 Contributing
-If you'd like to contribute or suggest improvements, feel free to open an issue or submit a pull request. All contributions are welcome!
+```bash
+npm install
+```
 
-## Credit
-_This readme is inspired from [Brittany Chiang's github](https://github.com/bchiang7/v4)_
+3. Run the development server:
+
+```bash
+npm run dev
+```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## 📁 Project Structure
+
+-   `/app` - Next.js app router pages and components
+-   `/components` - Reusable UI components
+-   `/lib` - Utility functions and data
+-   `/public` - Static assets (images, logos)
+-   `/types` - TypeScript type definitions
 
 ## 📄 License
-This project is open source and available under the [MIT License](https://github.com/Tajmirul/portfolio-2.0/blob/main/LICENSE).
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+## 🙏 Acknowledgments
+
+Special thanks to [Tajmirul Islam](https://github.com/Tajmirul) for the original portfolio template that inspired this design. Check out their work at [tajmirul.site](https://tajmirul.site/).
