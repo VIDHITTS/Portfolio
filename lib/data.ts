@@ -326,7 +326,7 @@ export const MY_EXPERIENCE = [
     {
         title: 'Bachelor of Technology (AI ML)',
         company: 'Newton School of Technology (ADYPU), Pune',
-        duration: 'Present',
+        duration: 'Grade: 9.16 CGPA',
     },
     {
         title: 'Intermediate',
