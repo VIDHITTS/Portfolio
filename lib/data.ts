@@ -102,6 +102,59 @@ export const MY_STACK = {
 
 export const PROJECTS: IProject[] = [
     {
+        title: 'YogaFlow',
+        slug: 'yogaflow',
+        liveUrl: 'https://yoga-app-eight-kappa.vercel.app',
+        sourceCode: 'https://github.com/VIDHITTS/Yoga-App.git',
+        year: 2026,
+        description: `
+      Built YogaFlow, an AI-powered yoga wellness chatbot leveraging RAG (Retrieval-Augmented Generation) architecture for intelligent, context-aware responses with seamless source attribution. <br/> <br/>
+      
+      Key Features:<br/>
+      <ul>
+        <li>RAG architecture for context-aware knowledge retrieval</li>
+        <li>Real-time safety detection and smart safety pivots</li>
+        <li>Personalized yoga recommendations and guidance</li>
+        <li>Secure query logging and conversation history</li>
+        <li>Contextual LLM responses with source attribution</li>
+        <li>Vector-based semantic search using Pinecone</li>
+      </ul><br/>
+      
+      Technical Highlights:
+      <ul>
+        <li>Full-stack AI platform with React frontend and Node.js backend</li>
+        <li>Pinecone vector database for efficient knowledge retrieval</li>
+        <li>MongoDB for persistent storage and user data</li>
+        <li>Transformers.js embeddings for semantic understanding</li>
+        <li>LLM integration for intelligent response generation</li>
+      </ul>
+      `,
+        role: `
+      Full-Stack AI Developer <br/>
+      <ul>
+        <li>Backend: Built RAG pipeline with Pinecone and LLM integration</li>
+        <li>Frontend: Created interactive chat interface with React</li>
+        <li>Safety: Implemented real-time safety detection and smart pivots</li>
+        <li>Embeddings: Integrated Transformers.js for semantic search</li>
+        <li>Database: Designed MongoDB schema for query logging</li>
+      </ul>
+      `,
+        techStack: [
+            'React',
+            'Node.js',
+            'Pinecone',
+            'MongoDB',
+            'Transformers.js',
+            'LLM',
+            'RAG',
+        ],
+        thumbnail: '/projects/images/yogaflow-1.png',
+        longThumbnail: '/projects/images/yogaflow-1.png',
+        images: [
+            '/projects/images/yogaflow-1.png',
+        ],
+    },
+    {
         title: 'Business Segmenter',
         slug: 'businesssegmenter',
         liveUrl:
