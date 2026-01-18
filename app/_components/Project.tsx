@@ -33,79 +33,137 @@ gsap.registerPlugin(useGSAP);
 const Project = ({ index, project, selectedProject, onMouseEnter }: Props) => {
     const externalLinkSVGRef = useRef<SVGSVGElement>(null);
 
-    const { context, contextSafe } = useGSAP(() => {}, {
+    const itemRef = useRef<HTMLAnchorElement>(null);
+
+    useGSAP(() => {}, {
         scope: externalLinkSVGRef,
         revertOnUpdate: true,
     });
 
-    const handleMouseEnter = contextSafe?.(() => {
-        onMouseEnter(project.slug);
+    useGSAP(
+        (context, contextSafe) => {
+            if (window.innerWidth < 768) return;
 
-        const arrowLine = externalLinkSVGRef.current?.querySelector(
-            '#arrow-line',
-        ) as SVGPathElement;
-        const arrowCurb = externalLinkSVGRef.current?.querySelector(
-            '#arrow-curb',
-        ) as SVGPathElement;
-        const box = externalLinkSVGRef.current?.querySelector(
-            '#box',
-        ) as SVGPathElement;
+            const xTo = gsap.quickTo(itemRef.current, 'x', {
+                duration: 0.5,
+                ease: 'power3.out',
+            });
+            const yTo = gsap.quickTo(itemRef.current, 'y', {
+                duration: 0.5,
+                ease: 'power3.out',
+            });
+            const rotateTo = gsap.quickTo(itemRef.current, 'rotation', {
+                duration: 0.5,
+                ease: 'power3.out',
+            });
 
-        gsap.set(box, {
-            opacity: 0,
-            strokeDasharray: box?.getTotalLength(),
-            strokeDashoffset: box?.getTotalLength(),
-        });
-        gsap.set(arrowLine, {
-            opacity: 0,
-            strokeDasharray: arrowLine?.getTotalLength(),
-            strokeDashoffset: arrowLine?.getTotalLength(),
-        });
-        gsap.set(arrowCurb, {
-            opacity: 0,
-            strokeDasharray: arrowCurb?.getTotalLength(),
-            strokeDashoffset: arrowCurb?.getTotalLength(),
-        });
+            const handleMouseMove = contextSafe?.((e: MouseEvent) => {
+                if (!itemRef.current) return;
+                const { clientX, clientY } = e;
+                const { height, width, left, top } =
+                    itemRef.current.getBoundingClientRect();
+                const x = clientX - (left + width / 2);
+                const y = clientY - (top + height / 2);
 
-        const tl = gsap.timeline({ repeat: -1, repeatDelay: 1 });
-        tl.to(externalLinkSVGRef.current, {
-            autoAlpha: 1,
-        })
-            .to(box, {
-                opacity: 1,
-                strokeDashoffset: 0,
-            })
-            .to(
-                arrowLine,
-                {
-                    opacity: 1,
-                    strokeDashoffset: 0,
-                },
-                '<0.2',
-            )
-            .to(arrowCurb, {
-                opacity: 1,
-                strokeDashoffset: 0,
-            })
-            .to(
-                externalLinkSVGRef.current,
-                {
-                    autoAlpha: 0,
-                },
-                '+=1',
-            );
-    });
+                xTo(x * 0.05);
+                yTo(y * 0.05);
+                rotateTo(x * 0.01);
 
-    const handleMouseLeave = contextSafe?.(() => {
-        context.kill();
-    });
+                // Existing hover logic for SVG arrow
+                onMouseEnter(project.slug);
+                const arrowLine = externalLinkSVGRef.current?.querySelector(
+                    '#arrow-line',
+                ) as SVGPathElement;
+                const arrowCurb = externalLinkSVGRef.current?.querySelector(
+                    '#arrow-curb',
+                ) as SVGPathElement;
+                const box = externalLinkSVGRef.current?.querySelector(
+                    '#box',
+                ) as SVGPathElement;
+
+                gsap.set(box, {
+                    opacity: 0,
+                    strokeDasharray: box?.getTotalLength(),
+                    strokeDashoffset: box?.getTotalLength(),
+                });
+                gsap.set(arrowLine, {
+                    opacity: 0,
+                    strokeDasharray: arrowLine?.getTotalLength(),
+                    strokeDashoffset: arrowLine?.getTotalLength(),
+                });
+                gsap.set(arrowCurb, {
+                    opacity: 0,
+                    strokeDasharray: arrowCurb?.getTotalLength(),
+                    strokeDashoffset: arrowCurb?.getTotalLength(),
+                });
+
+                const tl = gsap.timeline({ repeat: -1, repeatDelay: 1 });
+                tl.to(externalLinkSVGRef.current, {
+                    autoAlpha: 1,
+                })
+                    .to(box, {
+                        opacity: 1,
+                        strokeDashoffset: 0,
+                    })
+                    .to(
+                        arrowLine,
+                        {
+                            opacity: 1,
+                            strokeDashoffset: 0,
+                        },
+                        '<0.2',
+                    )
+                    .to(arrowCurb, {
+                        opacity: 1,
+                        strokeDashoffset: 0,
+                    })
+                    .to(
+                        externalLinkSVGRef.current,
+                        {
+                            autoAlpha: 0,
+                        },
+                        '+=1',
+                    );
+            }) as any;
+
+            const handleMouseLeave = contextSafe?.(() => {
+                xTo(0);
+                yTo(0);
+                rotateTo(0);
+            }) as any;
+
+            if (itemRef.current) {
+                itemRef.current.addEventListener(
+                    'mousemove',
+                    handleMouseMove as any,
+                );
+                itemRef.current.addEventListener(
+                    'mouseleave',
+                    handleMouseLeave as any,
+                );
+            }
+
+            return () => {
+                if (itemRef.current) {
+                    itemRef.current.removeEventListener(
+                        'mousemove',
+                        handleMouseMove as any,
+                    );
+                    itemRef.current.removeEventListener(
+                        'mouseleave',
+                        handleMouseLeave as any,
+                    );
+                }
+            };
+        },
+        { scope: itemRef },
+    );
 
     return (
         <TransitionLink
             href={`/projects/${project.slug}`}
-            className="project-item group leading-none py-5 md:border-b first:!pt-0 last:pb-0 last:border-none md:group-hover/projects:opacity-30 md:hover:!opacity-100 transition-all"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
+            className="project-item group leading-none py-5 md:border-b first:!pt-0 last:pb-0 last:border-none md:group-hover/projects:opacity-30 md:hover:!opacity-100 transition-all origin-center rotate-0"
+            ref={itemRef}
         >
             {selectedProject === null && (
                 <Image

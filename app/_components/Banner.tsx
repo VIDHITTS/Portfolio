@@ -1,5 +1,6 @@
 'use client';
 import ArrowAnimation from '@/components/ArrowAnimation';
+import MagneticButton from '@/components/MagneticButton';
 import Button from '@/components/Button';
 import { GENERAL_INFO, SOCIAL_LINKS } from '@/lib/data';
 import { useGSAP } from '@gsap/react';
@@ -53,28 +54,33 @@ const Banner = () => {
                         . {GENERAL_INFO.professionalSummary}
                     </p>
                     <div className="flex flex-wrap gap-4 mt-9">
-                        <Button
-                            as="link"
-                            href={`mailto:${GENERAL_INFO.email}`}
-                            variant="primary"
-                            className="banner-button slide-up-and-fade"
-                        >
-                            Contact Me
-                        </Button>
+                        <MagneticButton>
+                            <div className="inline-block banner-button slide-up-and-fade">
+                                <Button
+                                    as="link"
+                                    href={`mailto:${GENERAL_INFO.email}`}
+                                    variant="primary"
+                                >
+                                    Contact Me
+                                </Button>
+                            </div>
+                        </MagneticButton>
+
                         {SOCIAL_LINKS.filter(
                             (link) =>
                                 link.name === 'LinkedIn' ||
                                 link.name === 'Github',
                         ).map((link) => (
-                            <a
-                                key={link.name}
-                                href={link.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="banner-button slide-up-and-fade inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 hover:border-white/30 transition-all font-medium"
-                            >
-                                {link.name}
-                            </a>
+                            <MagneticButton key={link.name}>
+                                <a
+                                    href={link.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="banner-button slide-up-and-fade inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 hover:border-white/30 transition-all font-medium"
+                                >
+                                    {link.name}
+                                </a>
+                            </MagneticButton>
                         ))}
                     </div>
                 </div>

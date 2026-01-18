@@ -9,6 +9,7 @@ import ScrollProgressIndicator from '@/components/ScrollProgressIndicator';
 import ParticleBackground from '@/components/ParticleBackground';
 import Navbar from '@/components/Navbar';
 import Preloader from '../components/Preloader';
+import CustomCursor from '@/components/CustomCursor';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import Script from 'next/script';
 
@@ -75,6 +76,7 @@ export default function RootLayout({
                     <Preloader />
                     <ScrollProgressIndicator />
                     <ParticleBackground />
+                    <CustomCursor />
                 </ReactLenis>
             </body>
         </html>

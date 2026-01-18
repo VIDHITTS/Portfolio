@@ -116,7 +116,7 @@ const ProjectList = () => {
                                 <div
                                     key={project.slug}
                                     className={cn(
-                                        'absolute inset-0 flex items-center justify-center transition-opacity duration-500 bg-background-light rounded-lg',
+                                        'absolute inset-0 flex items-center justify-center transition-opacity duration-500 rounded-lg',
                                         {
                                             'opacity-0 pointer-events-none':
                                                 project.slug !==
