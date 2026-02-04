@@ -8,7 +8,7 @@ import CurrentWork from './_components/CurrentWork';
 
 export default function Home() {
     return (
-        <div className="page-">
+        <main className="page-">
             <Banner />
             <AboutMe />
             <Skills />
@@ -16,6 +16,6 @@ export default function Home() {
             <ProjectList />
             <Contact />
             <Experiences />
-        </div>
+        </main>
     );
 }
