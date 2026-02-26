@@ -25,7 +25,7 @@ const CurrentWork = () => {
             tl.fromTo(
                 '.current-work-item',
                 { y: 50, opacity: 0 },
-                { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }
+                { y: 0, opacity: 1, duration: 1, ease: 'power3.out' },
             );
         },
         { scope: containerRef },
@@ -44,32 +44,70 @@ const CurrentWork = () => {
                         <h2 className="text-5xl md:text-[60px] font-anton leading-none mb-6">
                             The AI-Powered Knowledge Operating System
                         </h2>
-                        
+
                         <p className="text-lg text-muted-foreground mb-6">
-                            OmniScript is a full-stack, intelligence-driven document platform that allows you to ingest any form of media (PDFs, text, YouTube videos, web pages, audio, images) and seamlessly interact with it. By leveraging agentic orchestration and modern Retrieval-Augmented Generation (RAG), it transforms stagnant files into a dynamic, queryable knowledge base.
+                            OmniScript is a full-stack, intelligence-driven
+                            document platform that allows you to ingest any form
+                            of media (PDFs, text, YouTube videos, web pages,
+                            audio, images) and seamlessly interact with it. By
+                            leveraging agentic orchestration and modern
+                            Retrieval-Augmented Generation (RAG), it transforms
+                            stagnant files into a dynamic, queryable knowledge
+                            base.
                         </p>
 
                         <div className="flex flex-col gap-3 text-muted-foreground mb-8 text-base">
-                            <p>✨ <strong>Agentic Interactions:</strong> Talk seamlessly to your documents using a streaming chat interface that cites its sources, evaluates relevance, and navigates document hierarchies intelligently.</p>
-                            <p>🔎 <strong>Advanced Retrieval:</strong> High-performance Hybrid Search pipeline (PostgreSQL pgvector + BM25 Full-Text) combined with Reciprocal Rank Fusion (RRF) and Cohere Cross-Encoder reranking.</p>
-                            <p>⚙️ <strong>Deep Ingestion:</strong> Robust background workers to semantically chunk, contextually enrich, and embed text using HyDE and Corrective RAG (CRAG) grading.</p>
+                            <p>
+                                ✨ <strong>Agentic Interactions:</strong> Talk
+                                seamlessly to your documents using a streaming
+                                chat interface that cites its sources, evaluates
+                                relevance, and navigates document hierarchies
+                                intelligently.
+                            </p>
+                            <p>
+                                🔎 <strong>Advanced Retrieval:</strong>{' '}
+                                High-performance Hybrid Search pipeline
+                                (PostgreSQL pgvector + BM25 Full-Text) combined
+                                with Reciprocal Rank Fusion (RRF) and Cohere
+                                Cross-Encoder reranking.
+                            </p>
+                            <p>
+                                ⚙️ <strong>Deep Ingestion:</strong> Robust
+                                background workers to semantically chunk,
+                                contextually enrich, and embed text using HyDE
+                                and Corrective RAG (CRAG) grading.
+                            </p>
                         </div>
-                        
+
                         <div className="flex flex-wrap gap-3 text-sm uppercase font-bold tracking-wider mb-8">
-                            <span className="bg-white/5 border border-white/10 px-4 py-2 rounded-full">Next.js 15</span>
-                            <span className="bg-white/5 border border-white/10 px-4 py-2 rounded-full">Node.js</span>
-                            <span className="bg-white/5 border border-white/10 px-4 py-2 rounded-full">PostgreSQL/pgvector</span>
-                            <span className="bg-white/5 border border-white/10 px-4 py-2 rounded-full">Prisma ORM</span>
-                            <span className="bg-white/5 border border-white/10 px-4 py-2 rounded-full">BullMQ / Redis</span>
-                            <span className="bg-white/5 border border-white/10 px-4 py-2 rounded-full">Cohere / OpenAI</span>
+                            <span className="bg-white/5 border border-white/10 px-4 py-2 rounded-full">
+                                Next.js 15
+                            </span>
+                            <span className="bg-white/5 border border-white/10 px-4 py-2 rounded-full">
+                                Node.js
+                            </span>
+                            <span className="bg-white/5 border border-white/10 px-4 py-2 rounded-full">
+                                PostgreSQL/pgvector
+                            </span>
+                            <span className="bg-white/5 border border-white/10 px-4 py-2 rounded-full">
+                                Prisma ORM
+                            </span>
+                            <span className="bg-white/5 border border-white/10 px-4 py-2 rounded-full">
+                                BullMQ / Redis
+                            </span>
+                            <span className="bg-white/5 border border-white/10 px-4 py-2 rounded-full">
+                                Cohere / OpenAI
+                            </span>
                         </div>
                     </div>
 
                     <div className="flex flex-col gap-6 w-full xl:w-[300px]">
                         <div className="bg-black/40 border border-white/5 p-6 rounded-2xl">
-                            <p className="font-anton text-2xl mb-4">Quick Links</p>
+                            <p className="font-anton text-2xl mb-4">
+                                Quick Links
+                            </p>
                             <div className="flex flex-col gap-4">
-                                <a 
+                                <a
                                     href="https://github.com/VIDHITTS/OmniScript"
                                     target="_blank"
                                     rel="noreferrer"
@@ -93,8 +131,8 @@ const CurrentWork = () => {
                                         <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                                     </svg>
                                 </a>
-                                
-                                <TransitionLink 
+
+                                <TransitionLink
                                     href="/projects/omniscript"
                                     className="inline-flex items-center gap-2 group text-white font-bold uppercase tracking-wider hover:text-primary transition-colors mt-2"
                                 >

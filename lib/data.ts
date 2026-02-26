@@ -144,7 +144,7 @@ export const PROJECTS: IProject[] = [
             'BullMQ',
             'pgvector',
             'RAG',
-            'Tailwind CSS'
+            'Tailwind CSS',
         ],
         thumbnail: '',
         longThumbnail: '',
@@ -199,9 +199,7 @@ export const PROJECTS: IProject[] = [
         ],
         thumbnail: '/projects/images/yogaflow-1.png',
         longThumbnail: '/projects/images/yogaflow-1.png',
-        images: [
-            '/projects/images/yogaflow-1.png',
-        ],
+        images: ['/projects/images/yogaflow-1.png'],
     },
     {
         title: 'Business Segmenter',
