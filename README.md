@@ -59,3 +59,4 @@ This project is open source and available under the [MIT License](LICENSE).
 ## 🙏 Acknowledgments
 
 Special thanks to [Tajmirul Islam](https://github.com/Tajmirul) for the original portfolio template that inspired this design. Check out their work at [tajmirul.site](https://tajmirul.site/).
+
