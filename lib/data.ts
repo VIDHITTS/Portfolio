@@ -102,6 +102,55 @@ export const MY_STACK = {
 
 export const PROJECTS: IProject[] = [
     {
+        title: 'OmniScript',
+        slug: 'omniscript',
+        liveUrl: '',
+        sourceCode: 'https://github.com/VIDHITTS/OmniScript',
+        year: 2026,
+        description: `
+      Building OmniScript, a full-stack, intelligence-driven document platform that allows users to ingest any form of media (PDFs, text, YouTube videos, web pages, audio, images) and seamlessly interact with it. By leveraging agentic orchestration and modern Retrieval-Augmented Generation (RAG), it transforms stagnant files into a dynamic, queryable knowledge base. <br/> <br/>
+      
+      Key Features:<br/>
+      <ul>
+        <li>Deep Ingestion: Upload files and run robust background workers to semantically chunk, contextually enrich, and embed text.</li>
+        <li>Advanced Retrieval: High-performance Hybrid Search pipeline (PostgreSQL pgvector + BM25 Full-Text) combined with Reciprocal Rank Fusion (RRF) and Cohere Cross-Encoder reranking.</li>
+        <li>Agentic Interactions: Talk seamlessly to documents using a streaming chat interface that cites its sources and evaluates relevance.</li>
+        <li>Secure Workspaces: Isolated knowledge vaults with membership management and real-time collaboration.</li>
+        <li>Auto-Generated Artifacts: Instantly create summaries, flashcards, mind maps, and study guides.</li>
+      </ul><br/>
+      
+      Technical Highlights:
+      <ul>
+        <li>Frontend: Next.js 15, React, Tailwind CSS, shadcn/ui</li>
+        <li>Backend API: Node.js, Express, TypeScript, Zod</li>
+        <li>Database: PostgreSQL 16 (pgvector, pg_trgm), Prisma ORM</li>
+        <li>Queue & Cache: BullMQ, Redis</li>
+        <li>AI/LLMs: Groq, OpenAI, Cohere</li>
+      </ul>
+      `,
+        role: `
+      Full-Stack AI Developer <br/>
+      <ul>
+        <li>Architecture & Engineering: Designing the complex ingestion pipeline and multi-modal knowledge graph</li>
+        <li>AI Integration: Building the modern RAG pipeline with Contextual retrieval, HyDE, and CRAG grading</li>
+        <li>Search System: Implementing Vector similarity (pgvector) and Full-Text (tsvector) mapped with RRF</li>
+      </ul>
+      `,
+        techStack: [
+            'Next.js 15',
+            'Node.js',
+            'PostgreSQL',
+            'Redis',
+            'BullMQ',
+            'pgvector',
+            'RAG',
+            'Tailwind CSS'
+        ],
+        thumbnail: '',
+        longThumbnail: '',
+        images: [],
+    },
+    {
         title: 'YogaFlow',
         slug: 'yogaflow',
         liveUrl: 'https://yoga-app-eight-kappa.vercel.app',
